@@ -17,7 +17,7 @@
 			<div id="up">
 				<div id="right">
 					<div id="pic">
-						<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/generaloverview.png" alt="general overview" />
+						<img src="{{static_url(movie.pic)}}" alt="general overview" />
 					</div>
 					<div id="describe">
 						<dl>
@@ -39,110 +39,80 @@
 					</div>
 					<div id="di">
 						<div id="leftc">
+							
+							{%for item in movie.reviewgroupl%}
 							<div class="comment">	
+							{%if item[1] == 'ROTTEN'%}
+							<p>
+								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt='rotten' />
+								<q>{{item[0]}}</q>
+							</p>
+							
+							{% elif item[1] == 'FRESH'%}
+							<p>
+								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/fresh.gif" alt='fresh'/>
+								<q>{{item[0]}}</q>
+							</p>
+							{%end%}
+							</div>
 
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt={{movie.reviewgroup[1]}} />
-								<q>{{movie.reviewgroup[0]}}</q>
-							</p>
-							</div>
 							<div class="reviewer">
+							{%if len(item) == 4%}
 							<p>
 								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[2]}}<br /><span style="font-style:italic">
-								{{movie.reviewgroup[3]}}</span>
+								{{item[2]}}<br /><span style="font-style:italic">
+								{{item[3]}}</span>
 							</p>
-							</div>
-							<div class="comment">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/fresh.gif" alt={{movie.reviewgroup[5]}}/>
-								<q>{{movie.reviewgroup[4]}}</q>
-							</p>
-							</div>
-							<div class="reviewer">
+							
+							{%elif len(item) == 3%}
 							<p>
 								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[6]}}<br /><span style="font-style:italic">
-								{{movie.reviewgroup[7]}}</span>
+								{{item[2]}}
 							</p>
+							{%end%}
+
 							</div>
-							<div class="comment">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt={{movie.reviewgroup[9]}}/>
-								<q>{{movie.reviewgroup[8]}}</q>
-							</p>
-							</div>
-							<div class="reviewer">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[10]}}
-							</p>
-							</div>
-							<div class="comment">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt={{movie.reviewgroup[12]}}/>
-								<q>{{movie.reviewgroup[11]}}</q>
-							</p>
-							</div>
-							<div class="reviewer">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[13]}}<br /><span style="font-style:italic">
-								{{movie.reviewgroup[14]}}</span>
-							</p>
-							</div>
+							{%end%}
+							
 						</div>
 						<div id="rightc">
-							<div class="comment">
+							
+							{%for item in movie.reviewgroupr%}
+							<div class="comment">	
+							{%if item[1] == 'ROTTEN'%}
 							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt={{movie.reviewgroup[16]}}/>
-								<q>{{movie.reviewgroup[15]}}</q>
+								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt='rotten' />
+								<q>{{item[0]}}</q>
 							</p>
+							
+							{%elif item[1] == 'FRESH'%}
+							<p>
+								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/fresh.gif" alt='fresh'/>
+								<q>{{item[0]}}</q>
+							</p>
+							{%end%}
 							</div>
+
 							<div class="reviewer">
+							{%if len(item) == 4%}
 							<p>
 								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[17]}}<br /><span style="font-style:italic">
-								{{movie.reviewgroup[18]}}</span>
+								{{item[2]}}<br /><span style="font-style:italic">
+								{{item[3]}}</span>
 							</p>
-							</div>
-							<div class="comment">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt={{movie.reviewgroup[20]}}/>
-								<q>{{movie.reviewgroup[19]}}</q>
-							</p></div>
-							<div class="reviewer">
+							
+							{%elif len(item) == 3%}
 							<p>
 								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[21]}}<br /><span style="font-style:italic">
-								{{movie.reviewgroup[22]}}</span>
+								{{item[2]}}
 							</p>
+							{%end%}
 							</div>
-							<div class="comment">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/fresh.gif" alt={{movie.reviewgroup[24]}} />
-								<q>{{movie.reviewgroup[23]}}</q>
-							</p></div>
-							<div class="reviewer">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[25]}}<br /><span style="font-style:italic">
-								{{movie.reviewgroup[26]}}</span>
-							</p>
-							</div>
-							<div class="comment">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/rotten.gif" alt={{movie.reviewgroup[28]}}/>
-								<q>{{movie.reviewgroup[27]}}</q>
-							</p>
-							</div>
-							<div class="reviewer">
-							<p>
-								<img src="http://www.cs.washington.edu/education/courses/cse190m/09sp/homework/2/critic.gif" alt="Critic" />
-								{{movie.reviewgroup[29]}}<br /><span style="font-style:italic">
-								{{movie.reviewgroup[30]}}</span>
-							</p>
-							</div>
+							{%end%}
+							
+							
+							
+							
 						</div>
 					</div>
 					
