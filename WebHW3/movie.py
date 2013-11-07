@@ -7,11 +7,9 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 import os
-import sys
-import multiprocessing
 
 from tornado.options import define, options
-define("port", default=9990, help="run on the given port", type=int)
+define("port", default=8883, help="run on the given port", type=int)
 
 
 class movie:
@@ -19,13 +17,16 @@ class movie:
         self.infolist = []
         self.reviewgroupl = []
         self.reviewgroupr = []
-        self.overview = {}
+        self.overview = []
         self.pic = pic
         for line in info:
             self.infolist.append(line)
         for lint in overview:
             info = lint.split(':')
-            self.overview[info[0]] = info[1]
+            obj = []
+            obj.append(info[0])
+            obj.append(info[1])
+            self.overview.append(obj)
         for i in range(len(alist)):
             if i < len(alist)/2:
                 content = []
@@ -95,7 +96,6 @@ class MainHandler(tornado.web.RequestHandler):
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
-    HTTPSERVER = tornado.httpserver.HTTPServer(Application())    
+    HTTPSERVER = tornado.httpserver.HTTPServer(Application())
     HTTPSERVER.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
-    

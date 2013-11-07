@@ -22,8 +22,8 @@
 					<div id="describe">
 						<dl>
 						{% for i in movie.overview %}
-							<dt>{{i}}</dt>
-							<dd>{{movie.overview[i]}}</dd>
+							<dt>{{i[0]}}</dt>
+							<dd>{{i[1]}}</dd>
 						{% end %}
 					    </dl>
 					</div>
