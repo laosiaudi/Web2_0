@@ -1,12 +1,19 @@
 # -*-coding: utf-8 -*-
+
+"""This scripts generates a html page"""
+
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
 import tornado.web
 import os
+import sys
+import multiprocessing
 
 from tornado.options import define, options
-define("port", default=8883, help="run on the given port", type=int)
+define("port", default=9990, help="run on the given port", type=int)
+
+
 class movie:
     def __init__(self, info, overview, alist, pic):
         self.infolist = []
@@ -41,10 +48,11 @@ class movie:
 class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
-            (r"/(\w+)",MainHandler),
+            (r"/(\w*)",MainHandler),
         ]
         settings = {
-            "template_path" : os.path.join(os.path.dirname(__file__), "template"),
+            "template_path" : os.path.join(os.path.dirname(__file__), \
+                "template"),
             "static_path" : os.path.join(os.path.dirname(__file__), "static"),
             "debug" : True,
         }
@@ -53,34 +61,41 @@ class Application(tornado.web.Application):
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self,input):
-        dire = './'
-        infopath = '/info.txt'
-        overviewpath = '/generaloverview.txt'
-        allpathInfo = dire + input + infopath
-        allpathOver = dire + input + overviewpath
-        filetokenInfo= open(allpathInfo,'r')
-        filetokenOver = open(allpathOver,'r')
-        review = []
-        filename = ['/review1.txt', '/review2.txt', '/review3.txt', '/review4.txt', '/review5.txt', '/review6.txt', '/review7.txt', '/review8.txt', '/review9.txt', '/review10.txt', '/review11.txt', '/review12.txt']
-        files = os.listdir(dire + input)
-        num = len(files)
+        if input == '':
+            self.write('<h1>Welcome!</h1>')
+        else:
+            dire = './'
+            infopath = '/info.txt'
+            overviewpath = '/generaloverview.txt'
+            allpath_info = dire + input + infopath
+            allpath_over = dire + input + overviewpath
+            filetoken_info = open(allpath_info,'r')
+            filetoken_over = open(allpath_over,'r')
+            review = []
+            filename = ['/review1.txt', '/review2.txt', '/review3.txt', \
+            '/review4.txt', '/review5.txt', '/review6.txt', \
+            '/review7.txt', '/review8.txt', '/review9.txt', \
+            '/review10.txt', '/review11.txt', '/review12.txt']
+            files = os.listdir(dire + input)
+            num = len(files)
 
-        for i in range(num - 4):
-            filenames = dire + input + filename[i]
-            ftoken = open(filenames,'r')
-            review.append(ftoken)
+            for i in range(num - 4):
+                filenames = dire + input + filename[i]
+                ftoken = open(filenames,'r')
+                review.append(ftoken)
             
 
-        pic = input + '.png'
-        objectM = movie(filetokenInfo, filetokenOver, review, pic)
+            pic = input + '.png'
+            objectm = movie(filetoken_info, filetoken_over, review, pic)
 
 
-        self.render("template.html", movie = objectM)
+            self.render("template.html", movie = objectm)
 
 
 
 if __name__ == "__main__":
     tornado.options.parse_command_line()
-    http_server=tornado.httpserver.HTTPServer(Application())
-    http_server.listen(options.port)
+    HTTPSERVER = tornado.httpserver.HTTPServer(Application())    
+    HTTPSERVER.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
+    
