@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Buy Your Way to a Better Education!</title>
+		<link href="{{static_url("confirm.css")}}" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id = "content">
+			<div id = "maindiv">
+				<h1>Thanks,Sucker</h1>
+				<p>Your confirm has been recorded.</p>
+				<br>
+				<p>Name</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;{{info["name"]}}</p>
+				<p>Section</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;{{info["section"]}}</p>
+				<p>Credit Card</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;{{info["crednum"]}} ({{info["cretype"]}})</p>
+				<p>Here are all the suckers who have submitted here:</p>
+				{% for i in text %}
+				<p>{{i}}</p>
+				{% end %}
+			</div>
+		</div>
+	</body>
+</html>

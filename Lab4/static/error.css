@@ -1,0 +1,26 @@
+#content{
+	background-color: white;
+	
+	width:600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#maindiv {
+	background-color: white;
+	
+	width:600px;
+	border: 10px solid yellow;
+}
+
+body{
+	background-color: blue;
+	font-family: Arial,sans-serif ;
+}
+
+
+
+h1{
+	text-align:center;
+}
+

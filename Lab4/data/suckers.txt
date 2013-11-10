@@ -1,0 +1,7 @@
+laosi;MC;3333;visa
+rrrr;ME;33333;mastercard
+dddd;MG;4408041254369873;visa
+dddd;MG;4408-0412-5436-9873;visa
+dddd;MG;4408041254369873;visa
+dddd;MG;4408041254369873;visa
+dddd;MG;4408041254369873;visa
