@@ -10,7 +10,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/",MainHandler),
-            (r"/(\w*).mp3",FormHandler),
+            (r"/(\w*).mp3",DownloadHandler),
         ]
         settings = {
             
@@ -18,7 +18,7 @@ class Application(tornado.web.Application):
             "debug" : True,
         }
         tornado.web.Application.__init__(self, handlers, **settings)
-class FormHandler(tornado.web.RequestHandler):
+class DownloadHandler(tornado.web.RequestHandler):
     def get(self,ingo):
         
         filename = "static/songs/" + ingo + ".mp3"
