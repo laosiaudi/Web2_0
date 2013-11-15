@@ -22,12 +22,12 @@ class DownloadHandler(tornado.web.RequestHandler):
     def get(self,ingo):
         
         filename = "static/songs/" + ingo + ".mp3"
-        f =open(filename)
+#        f =open(filename)  open file is optional
         
         self.set_header("Content-Disposition","attachment") 
         self.set_header("Content-Type","application/mp3")
        
-        f.close()
+ #       f.close()
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
