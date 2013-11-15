@@ -10,7 +10,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/",MainHandler),
-            (r"/(\w*).mp3",DownloadHandler),
+            (r"/(\w*).mp3",FormHandler),
         ]
         settings = {
             
@@ -18,16 +18,16 @@ class Application(tornado.web.Application):
             "debug" : True,
         }
         tornado.web.Application.__init__(self, handlers, **settings)
-class DownloadHandler(tornado.web.RequestHandler):
+class FormHandler(tornado.web.RequestHandler):
     def get(self,ingo):
         
         filename = "static/songs/" + ingo + ".mp3"
-#        f =open(filename)  open file is optional
+        f =open(filename)
         
         self.set_header("Content-Disposition","attachment") 
         self.set_header("Content-Type","application/mp3")
-       
- #       f.close()
+        self.write(f.read()) 
+        f.close()
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
