@@ -1,3 +1,5 @@
+#author:laosi
+
 # -*-coding: utf-8 -*-
 
 """This scripts generates a html page"""
