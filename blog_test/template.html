@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>{{passtitle}}</title>
+		<link href="{{static_url("template.css")}}" type="text/css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id = "content">
+			<h1>{{passtitle}}</h1>
+			<h2>{{author}}</h2>
+			<p>{{blog}}</p>
+			<h2>评论</h2>
+			{%for i in comment%}
+			<div class = "comment">
+			  <p><span>{{i[0]}}</span>&nbsp;{{i[1]}}</p>
+			  <p> &nbsp;&nbsp;&nbsp;&nbsp;{{i[2]}}</p>
+			</div>
+			{%end%}
+			{% if flag == True%}
+				<form  method="post">
+					<textarea name="comment_submit" cols="30" rows="10">
+						
+					</textarea>
+					<input type = "submit" value = "发表评论"/> 
+				</form>
+				<form action="/logout" method="get">
+					<input type = "submit" value = "logout"/>
+				</form>
+			{%end%}
+		</div>
+	</body>
+</html>

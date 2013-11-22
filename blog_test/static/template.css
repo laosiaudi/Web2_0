@@ -1,0 +1,27 @@
+#content{
+
+	width:800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1{
+	color:Aquamarine;
+}
+
+h2{
+	color:GreenYellow;
+}
+
+p strong{
+	font-style: bolder 10px;
+}
+
+.comment{
+	width:800px;
+	background-color: Aqua;
+}
+.comment span{
+	font-weight: bolder;
+	font-size: 20px;
+}
