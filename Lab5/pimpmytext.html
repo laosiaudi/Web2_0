@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pimp My Text!</title>
+		<link href="http://www.cs.washington.edu/education/courses/190m/09sp/labs/5-pimpify/pimpmytext.css" rel="stylesheet" type="text/css" />
+
+		<!--
+			This is a widely-used JavaScript "library" with many useful functions,
+			including the $() function, which we need. We'll discuss it in class.
+			Please don't remove this link or change the following URL; leave it as-is!
+		-->
+    <script type="text/javascript" src = "http://www.cs.washington.edu/education/courses/190m/09sp/labs/5-pimpify/prototype.js"></script>
+		<!-- link to your script file here -->
+    <script type="text/javascript" src="pimpmytext.js"></script>
+	</head>
+
+	<body>
+		<h1>Pimp My Text</h1>
+		<div>
+			<img src="http://www.cs.washington.edu/education/courses/190m/09sp/labs/5-pimpify/pimpin.jpg" alt="Marty Stepp, pimpin' it!" />
+		</div>
+
+    <!-- Your UI controls go here -->
+    <div>
+      <fieldset>
+        <legend>Text</legend>
+        <textarea rows="4" cols="30" id="input"></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>Pimpification</legend>
+        <input type="button" value="Bigger Pimpin!" onclick="onButtonClicked()"/></br>
+        <input type="checkbox" id="checkbox" onclick="onCheckBoxClicked()"/>Bling      </br>
+        <input type="button" value="snoopify" onclick="Snoopify()"/></br>
+        <input type="button" value="Malkovitch" onclick="Mal()"/></br>
+        <input type = "button" value="Igpay Atinlay" onclick="Igpay()"/></br>
+      </fieldset>
+    </div>
+
+	</body>
+</html>
