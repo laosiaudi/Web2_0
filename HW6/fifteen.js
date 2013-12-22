@@ -9,6 +9,9 @@ window.onload = function(){
 };
 
 function initialize(){
+  tileIndex = [];
+  length = 4;
+  space = 15;
 	var puzzlearea = $("puzzlearea");
 	var component = puzzlearea.getElementsByTagName("div");
   for (var i = 0;i < component.length;i ++){
