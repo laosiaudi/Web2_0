@@ -13,13 +13,15 @@
 			<h1>{{passtitle}}</h1>
 			<h2>{{author}}</h2>
 			<p>{{blog}}</p>
-			<h2>评论</h2>
-			{%for i in comment%}
-			<div class = "comment">
-			  <p><span>{{i[0]}}</span>&nbsp;{{i[1]}}</p>
-			  <p> &nbsp;&nbsp;&nbsp;&nbsp;{{i[2]}}</p>
-			</div>
-      {%end%}
+      <h2>评论</h2>
+      <div id="comment_block">
+        {%for i in comment%}
+        <div class = "comment">
+          <p><span>{{i[0]}}</span>&nbsp;{{i[1]}}</p>
+          <p> &nbsp;&nbsp;&nbsp;&nbsp;{{i[2]}}</p>
+        </div>
+        {%end%}
+      </div>
 			{% if flag == True%}
 				<form  id="form" method="">
 					<textarea name="comment_submit" cols="30" rows="10">
