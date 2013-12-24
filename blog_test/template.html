@@ -3,8 +3,12 @@
 	<head>
 		<title>{{passtitle}}</title>
 		<link href="{{static_url("template.css")}}" type="text/css" rel="stylesheet" />
-	</head>
-	<body>
+    <script src="{{static_url("prototype.js")}}">
+    </script>
+    <script src = "{{static_url("ajax.js")}}" type = "text/javascript"></script>
+  </head>
+  <body>
+    {%autoescape None%}
 		<div id = "content">
 			<h1>{{passtitle}}</h1>
 			<h2>{{author}}</h2>
@@ -15,14 +19,14 @@
 			  <p><span>{{i[0]}}</span>&nbsp;{{i[1]}}</p>
 			  <p> &nbsp;&nbsp;&nbsp;&nbsp;{{i[2]}}</p>
 			</div>
-			{%end%}
+      {%end%}
 			{% if flag == True%}
-				<form  method="post">
+				<form  id="form" method="">
 					<textarea name="comment_submit" cols="30" rows="10">
 						
 					</textarea>
-					<input type = "submit" value = "发表评论"/> 
 				</form>
+          <button id = "commit" onclick="commit()">发表评论</button> 
 				<form action="/logout" method="get">
 					<input type = "submit" value = "logout"/>
 				</form>
