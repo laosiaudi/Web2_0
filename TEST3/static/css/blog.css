@@ -1,0 +1,63 @@
+body{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+#infomation{
+  width:10%;
+  float:left;
+}
+#content{
+  width:60%;
+  float:right;
+	font-family: "Georgia";
+	padding: 10px;
+}
+.name{
+  font-weight:bold;
+	font-family: "Century Gothic";
+}
+h1{
+	font-weight: bold;
+	font-family: "Century Gothic";
+	margin: 3px;
+	padding: 5px;
+	color: #009097;
+}
+
+h2{
+	font-weight: bold;
+	font-family: "Century Gothic";
+	color: #009007;
+}
+.newComment{
+  display:none;
+}
+
+.newComment_{
+  display:none;
+}
+.twitter{
+	border: 1px #C2E9E9 solid;
+	background: yellow;
+	padding: 2px;
+	margin-top: 10px;
+	text-align: justify;
+	overflow: hidden;
+}
+
+.comment p{
+	text-indent: 2em;
+	margin: 10px;
+}
+
+.name{
+    font-weight: bold;
+	font-size: 120%;
+	font-family: "serif";
+}
+
+.time{
+	font-size: 80%;
+	margin-left: 20px;
+}
