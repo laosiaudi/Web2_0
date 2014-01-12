@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Stack Overflow</title>
+  <link rel="stylesheet" type="text/css" href="{{static_url("css/style.css")}}" title="style" />
+  <script src = "{{static_url("js/refresh.js")}}"></script>
+   <script src="{{static_url("js/prototype.js")}}"></script>
+</head>
+<body>
+  <div id = "mainbody">
+    <img src = "{{static_url("img/stackoverflow-logo.png")}}" alt="logo"/>
+    <p>All Questions</p>
+    <hr/>
+      <input id = "search" type = "text" name="search"/ >
+      <input type= "submit" value = "Search" onclick="refresh()"/>
+    <div id = "questionbody">
+      {% autoescape None %}
+      {% for q in qset %}
+      <div class = "question">
+        <p class = "title">{{q.title }}</p>
+        <p class = "content">{{q.content}}</p>
+        {% for tags in q.tag%}
+          <div class="tag">{{tags}} </div>
+        {%end%}
+        <div class = "date">{{q.date}}</div>
+          <div class="line"><hr/></div>
+      </div>
+      {% end %}
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+count 14: ['hi']
+count 10: ['I']
+count 8: ['ask']
+count 6: ['hello']
+count 5: ['the']
+count 4: ['to', 'world']
+count 2: ['enter', 'user', 'want']
+count 1: ['Python', 't']
